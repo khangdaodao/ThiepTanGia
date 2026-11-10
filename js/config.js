@@ -82,7 +82,7 @@ export const config = {
     // Lưu ý: Địa chỉ cần được xác nhận lại với khách hàng trước khi bàn giao.
     address: "Ngõ 7, TDP Đông Hòa, phường Đông Hòa Lư, Ninh Bình",
     // Giữ chuỗi rỗng "" khi chưa có link bản đồ thực tế. Tuyệt đối không tự đoán URL.
-    mapsUrl: "",
+    mapsUrl: "https://maps.app.goo.gl/hcVV1DPN9XNScr1i8",
     buttonText: "VIEW LOCATION",
     disabledButtonHint:
       "Nút chỉ đường sẽ được kích hoạt ngay khi cập nhật Google Maps URL trong js/config.js",
