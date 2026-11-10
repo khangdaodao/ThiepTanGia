@@ -93,3 +93,8 @@ TanGiaWeb/
 ## 9. Trạng thái hiện tại
 - **Phase 3 (Project Foundation):** Đã hoàn thành & phê duyệt.
 - **Phase 4 (Core UI Implementation):** Đã hoàn thành giao diện 5 section theo ảnh tham chiếu. Đang chờ người dùng kiểm tra và phê duyệt trước khi sang Phase 5.
+
+## 10. Chỉnh sửa theo phản hồi khách (10/11/2026)
+- Font toàn trang đổi sang **Montserrat** (Google Fonts, hỗ trợ tiếng Việt) theo ảnh mẫu khách gửi. Font mẫu được nhận diện bằng mắt, chưa xác nhận chắc chắn. Đổi font: sửa `--font-serif` / `--font-sans` trong css/style.css và link font trong index.html.
+- Phóng to phần ngày tháng (Section 03): dòng giờ/ngày, tiêu đề tháng, hàng thứ, ô ngày (44px -> 52px desktop, 36px -> 40px mobile), khung lịch 520px -> 600px.
+- Trạng thái: đã sửa code, CHƯA kiểm tra bằng trình duyệt (chụp màn hình headless bị treo), CHƯA commit/push, chờ khách duyệt.

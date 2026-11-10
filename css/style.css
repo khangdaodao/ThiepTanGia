@@ -19,10 +19,11 @@
   --color-hairline-light: rgba(250, 248, 244, 0.24);
 
   /* Typography */
-  --font-serif: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua",
-    Georgia, serif;
-  --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-     sans-serif;
+  /* Typography */
+  /* Font toàn trang: Montserrat. Muốn đổi font, chỉ cần sửa 2 dòng này
+     (và link Google Fonts trong index.html). */
+  --font-serif: "Montserrat", "Segoe UI", Arial, sans-serif; /* tiêu đề, tên, ngày tháng */
+  --font-sans: "Montserrat", "Segoe UI", Arial, sans-serif;  /* nội dung */
 
   /* Spacing & Sizes */
   --container-width: 760px;
@@ -62,12 +63,10 @@ body {
   font-weight: 400;
   line-height: 1.65;
   color: var(--color-ink-black);
-  background: radial-gradient(
-    circle at 50% 0%,
-    #ede6dc 0%,
-    var(--color-canvas-beige) 55%,
-    var(--color-canvas-beige-deep) 100%
-  );
+  background: radial-gradient(circle at 50% 0%,
+      #ede6dc 0%,
+      var(--color-canvas-beige) 55%,
+      var(--color-canvas-beige-deep) 100%);
   overflow-x: hidden;
 }
 
@@ -291,11 +290,9 @@ a {
   justify-content: center;
   text-align: center;
   gap: 1rem;
-  background: linear-gradient(
-    180deg,
-    var(--color-paper-ivory) 0%,
-    var(--color-paper-warm) 100%
-  );
+  background: linear-gradient(180deg,
+      var(--color-paper-ivory) 0%,
+      var(--color-paper-warm) 100%);
   border: 1px dashed rgba(21, 20, 19, 0.28);
 }
 
@@ -482,7 +479,7 @@ a {
   color: var(--color-ink-charcoal);
 }
 
-.body-prose + .body-prose {
+.body-prose+.body-prose {
   margin-top: 1.15rem;
 }
 
@@ -516,24 +513,24 @@ a {
 
 .event-time-line {
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-ink-black);
 }
 
 .event-date-line {
   font-family: var(--font-serif);
-  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-ink-black);
 }
 
 .calendar-atelier {
-  max-width: 520px;
+  max-width: 600px;
   margin-inline: auto;
   padding-top: 0.5rem;
 }
@@ -544,9 +541,9 @@ a {
 
 .calendar-month-title {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-ink-black);
 }
@@ -567,26 +564,26 @@ a {
 
 .calendar-weekdays span {
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
 
 .calendar-dates-grid {
-  row-gap: 0.65rem;
+  row-gap: 0.85rem;
 }
 
 .calendar-cell {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
   font-family: var(--font-serif);
-  font-size: 1.08rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: var(--color-ink-black);
   z-index: 1;
