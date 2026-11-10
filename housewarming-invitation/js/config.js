@@ -17,9 +17,9 @@
 export const config = {
   // ---- Thông tin gia chủ ----
   hosts: {
-    firstHost: "Toàn Văn Phong",
+    firstHost: "Đoàn Văn Phong",
     secondHost: "Nguyễn Thị Thảo",
-    names: ["Toàn Văn Phong", "Nguyễn Thị Thảo"],
+    names: ["Đoàn Văn Phong", "Nguyễn Thị Thảo"],
     separator: "&",
     roleLabel: "TRÂN TRỌNG BÁO TIN MỪNG TÂN GIA CỦA GIA ĐÌNH CHÚNG TÔI",
   },
@@ -47,7 +47,7 @@ export const config = {
       "Niềm vui ngày về nhà mới sẽ trọn vẹn hơn khi có sự hiện diện và lời chúc phúc từ những người thân yêu.",
     // Đặt ảnh thật vào assets/images/ rồi cập nhật đường dẫn (ví dụ: "assets/images/our-home.jpg").
     // Để trống "" khi chưa có ảnh thực tế từ khách hàng.
-    image: "",
+    image: "assets/images/houseReal.jpg",
     imageAlt: "Ảnh ngoại thất ngôi nhà của Toàn Văn Phong và Nguyễn Thị Thảo",
     imageCaption: "TỔ ẤM CỦA PHONG & THẢO",
     missingAssetLabel: "Ảnh ngoại thất ngôi nhà (Cần bổ sung: assets/images/our-home.jpg)",
@@ -70,7 +70,7 @@ export const config = {
     day: 14,
     month: 11,
     year: 2026,
-     formattedDate: "14 . 11 . 2026",
+    formattedDate: "14 . 11 . 2026",
   },
 
   // ---- SECTION 04: LOCATION (Ảnh nhà, địa chỉ & nút Google Maps) ----
@@ -87,7 +87,7 @@ export const config = {
     disabledButtonHint:
       "Nút chỉ đường sẽ được kích hoạt ngay khi cập nhật Google Maps URL trong js/config.js",
     // Đặt ảnh thật vào assets/images/ rồi cập nhật đường dẫn (ví dụ: "assets/images/location-house.jpg").
-    image: "",
+    image: "assets/images/houseAI.jpg",
     imageAlt: "Ảnh ngôi nhà tại Đông Hòa Lư, Ninh Bình",
     imageCaption: "NGÕ 7, TDP ĐÔNG HÒA — NINH BÌNH",
     missingAssetLabel: "Ảnh ngôi nhà tại phần Địa điểm (Cần bổ sung: assets/images/location-house.jpg)",
