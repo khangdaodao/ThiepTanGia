@@ -1,13 +1,10 @@
 /**
- * main.js — Entry point của Housewarming Invitation Website (Phase 4: Core UI).
- * Đọc dữ liệu từ `js/config.js` và render 5 section theo đúng thứ tự đã khóa:
- * 01. THE INVITATION
- * 02. OUR HOME
- * 03. THE DATE
- * 04. LOCATION
- * 05. THANK YOU
+ * main.js — Entry point của Housewarming Invitation Website.
+ * Đọc dữ liệu từ `js/config.js`, render 5 section, khởi tạo hiệu ứng mở thiệp
+ * (Open Invitation fade-in) và nút phát nhạc góc trái màn hình.
  */
 import { config } from "./config.js";
+import { initAnimations } from "./animations.js";
 
 function setText(id, text) {
   const el = document.getElementById(id);
@@ -28,8 +25,7 @@ function formatHostNames(hosts) {
 
 /**
  * Render hình ảnh thực tế nếu có đường dẫn trong `config.js`.
- * Nếu chưa có ảnh thực tế trong `assets/images/`, hiển thị placeholder rõ ràng
- * để báo cho người dùng biết file ảnh nào cần bổ sung (không dùng ảnh giả/AI).
+ * Nếu chưa có ảnh thực tế trong `assets/images/`, hiển thị placeholder rõ ràng.
  */
 function renderEditorialFigure(figureEl, options) {
   if (!figureEl) return;
@@ -48,7 +44,10 @@ function renderEditorialFigure(figureEl, options) {
     const placeholder = document.createElement("div");
     placeholder.className = "photo-placeholder";
     placeholder.setAttribute("role", "img");
-    placeholder.setAttribute("aria-label", missingLabel || alt || "Image placeholder");
+    placeholder.setAttribute(
+      "aria-label",
+      missingLabel || alt || "Image placeholder"
+    );
 
     const arch = document.createElement("div");
     arch.className = "photo-placeholder__frame";
@@ -118,14 +117,11 @@ function renderOurHomeSection(cfg) {
 
 /**
  * Tính toán danh sách ô lịch cho tháng/năm bất kỳ theo chuẩn tuần bắt đầu từ Thứ Hai (T2 -> CN).
- * Với tháng 11/2026:
- * - Ngày 01/11/2026 là Chủ Nhật (CN - cột thứ 7, sau 6 ô trống từ T2 đến T7).
- * - Ngày 14/11/2026 là Thứ Bảy (T7 - cột thứ 6).
  */
 export function buildCalendarCells(year, month, highlightDay) {
   const totalDays = new Date(year, month, 0).getDate();
-  const firstWeekdaySundayZero = new Date(year, month - 1, 1).getDay(); // 0 = CN, 1 = T2, ..., 6 = T7
-  const leadingBlanks = (firstWeekdaySundayZero + 6) % 7; // T2 = 0, T3 = 1, ..., T7 = 5, CN = 6
+  const firstWeekdaySundayZero = new Date(year, month - 1, 1).getDay();
+  const leadingBlanks = (firstWeekdaySundayZero + 6) % 7;
 
   const cells = [];
   for (let i = 0; i < leadingBlanks; i += 1) {
@@ -143,9 +139,6 @@ export function buildCalendarCells(year, month, highlightDay) {
   return cells;
 }
 
-/**
- * Tạo biểu tượng ngôi sao 4 cánh (diamond star) giống thiết kế tham chiếu để đánh dấu ngày 14.
- */
 function createStarBadgeSvg() {
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
@@ -154,7 +147,6 @@ function createStarBadgeSvg() {
   svg.setAttribute("aria-hidden", "true");
 
   const path = document.createElementNS(svgNS, "path");
-  // Ngôi sao 4 đỉnh cân đối theo phong cách editorial của mẫu thiệp tham chiếu
   path.setAttribute(
     "d",
     "M24 2 C27.5 15.5 32.5 20.5 46 24 C32.5 27.5 27.5 32.5 24 46 C20.5 32.5 15.5 27.5 2 24 C15.5 20.5 20.5 15.5 24 2 Z"
@@ -271,6 +263,90 @@ function renderThankYouSection(cfg) {
   setText("thank-you-hosts", formatHostNames(hosts));
 }
 
+/**
+ * Khởi tạo bộ điều khiển nhạc nền:
+ * - Ban đầu khi mới vào web: KHÔNG phát nhạc (trạng thái tắt).
+ * - Khi người dùng ấn nút `OPEN INVITATION`: nhạc tự động bật.
+ * - Người dùng có thể bấm nút tròn góc dưới bên trái để Bật / Tạm dừng bất kỳ lúc nào.
+ */
+function initMusicController(cfg) {
+  const musicCfg = cfg.music || {};
+  const btn = document.getElementById("music-toggle-btn");
+  const audioEl = document.getElementById("bg-music");
+
+  if (!btn || !audioEl) {
+    return { startOnOpen() {} };
+  }
+
+  const cleanSrc =
+    typeof musicCfg.src === "string" ? musicCfg.src.trim() : "";
+
+  if (musicCfg.enabled === false || !cleanSrc) {
+    btn.hidden = true;
+    return { startOnOpen() {} };
+  }
+
+  btn.hidden = false;
+  audioEl.src = cleanSrc;
+  audioEl.loop = true;
+
+  // Đảm bảo ban đầu khi mới vào trang nhạc hoàn toàn TẮT
+  audioEl.pause();
+  audioEl.currentTime = 0;
+
+  function syncButtonState(playing) {
+    btn.classList.toggle("is-playing", playing);
+    btn.classList.toggle("is-paused", !playing);
+    btn.setAttribute("aria-pressed", String(playing));
+    btn.setAttribute(
+      "aria-label",
+      playing ? "Tạm dừng nhạc nền" : "Bật nhạc nền"
+    );
+  }
+
+  syncButtonState(false);
+
+  audioEl.addEventListener("play", () => syncButtonState(true));
+  audioEl.addEventListener("pause", () => syncButtonState(false));
+  audioEl.addEventListener("ended", () => syncButtonState(false));
+
+  function playMusic() {
+    const playPromise = audioEl.play();
+    if (playPromise && typeof playPromise.then === "function") {
+      playPromise
+        .then(() => {
+          syncButtonState(true);
+        })
+        .catch(() => {
+          syncButtonState(false);
+        });
+    } else {
+      syncButtonState(!audioEl.paused);
+    }
+  }
+
+  function pauseMusic() {
+    audioEl.pause();
+    syncButtonState(false);
+  }
+
+  btn.addEventListener("click", () => {
+    if (audioEl.paused) {
+      playMusic();
+    } else {
+      pauseMusic();
+    }
+  });
+
+  return {
+    startOnOpen() {
+      if (musicCfg.autoPlayOnOpen !== false && audioEl.paused) {
+        playMusic();
+      }
+    },
+  };
+}
+
 function setDocumentTitle(cfg) {
   const hostDisplay = formatHostNames(cfg.hosts);
   document.title = `${cfg.invitation.heading} — ${hostDisplay}`;
@@ -288,6 +364,11 @@ export function init() {
   if (typeof document === "undefined") return;
   setDocumentTitle(config);
   renderModules.forEach((renderFn) => renderFn(config));
+
+  const musicController = initMusicController(config);
+  initAnimations(() => {
+    musicController.startOnOpen();
+  });
 }
 
 if (typeof document !== "undefined") {

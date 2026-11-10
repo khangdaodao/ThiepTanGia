@@ -1,18 +1,88 @@
 /* ==========================================================================
-   animations.css — CSS Hooks Reserved for Phase 5
-   Phase 4: All sections & elements remain visible by default.
-   The complete staggered scroll animation & cover opening transition
-   are intentionally deferred to Phase 5.
+   animations.css — Hiệu ứng mở thiệp (Open Invitation) & Fade-in các Section
    ========================================================================== */
 
-[data-animate-group],
-[data-animate-item] {
-  opacity: 1;
-  transform: none;
+/* 1. Trạng thái ban đầu khi mới vào web (chưa bấm OPEN INVITATION):
+      Chỉ hiện Section 01 (.section-invitation).
+      Các Section 02 -> 05 ẩn hoàn toàn với opacity = 0. */
+body:not(.is-invitation-opened) .invitation-canvas {
+  gap: 0;
+  min-height: 100vh;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+body:not(.is-invitation-opened) .editorial-section:not(.section-invitation) {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(28px);
+}
+
+/* 2. Sau khi bấm nút OPEN INVITATION (body.is-invitation-opened):
+      Mở khóa các Section 02 -> 05 và chạy hiệu ứng hiện dần (fade-in) */
+body.is-invitation-opened .editorial-section:not(.section-invitation) {
+  opacity: 0;
+  visibility: visible;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  pointer-events: auto;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.is-invitation-opened .editorial-section.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Hiệu ứng Staggered Fade-in cho các phần tử con bên trong từng Section */
+body.is-invitation-opened
+  .editorial-section:not(.section-invitation)
+  [data-animate-item] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.is-invitation-opened
+  .editorial-section.is-revealed
+  [data-animate-item].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Hiệu ứng xoay nhẹ cho nút nhạc khi đang phát */
+@keyframes musicNoteSpin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes musicPulseHalo {
+  0%,
+  100% {
+    box-shadow: 0 6px 18px rgba(74, 14, 14, 0.38),
+      0 0 0 3px rgba(74, 14, 14, 0.14);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(74, 14, 14, 0.5),
+      0 0 0 8px rgba(74, 14, 14, 0.08);
+  }
+}
+
+.music-fab.is-playing {
+  animation: musicPulseHalo 2.6s ease-in-out infinite;
+}
+
+.music-fab.is-playing .music-fab__icon {
+  animation: musicNoteSpin 6s linear infinite;
 }

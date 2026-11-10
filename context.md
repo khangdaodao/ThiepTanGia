@@ -98,3 +98,7 @@ TanGiaWeb/
 - Font toàn trang đổi sang **Montserrat** (Google Fonts, hỗ trợ tiếng Việt) theo ảnh mẫu khách gửi. Font mẫu được nhận diện bằng mắt, chưa xác nhận chắc chắn. Đổi font: sửa `--font-serif` / `--font-sans` trong css/style.css và link font trong index.html.
 - Phóng to phần ngày tháng (Section 03): dòng giờ/ngày, tiêu đề tháng, hàng thứ, ô ngày (44px -> 52px desktop, 36px -> 40px mobile), khung lịch 520px -> 600px.
 - Trạng thái: đã sửa code, CHƯA kiểm tra bằng trình duyệt (chụp màn hình headless bị treo), CHƯA commit/push, chờ khách duyệt.
+
+## 11. Cập nhật tương tác mở thiệp & nút phát nhạc (10/11/2026)
+- **Luồng mở thiệp (OPEN INVITATION):** Khi mới vào web, chỉ hiển thị Section 01 (#section-invitation); các Section 02 -> 05 được ẩn với opacity: 0 (ody:not(.is-invitation-opened)). Khi người dùng nhấn nút OPEN INVITATION, ody nhận class .is-invitation-opened, các section phía dưới lần lượt hiện lên (fade-in) mượt mà và trang tự động cuộn xuống Section 02 (#section-our-home).
+- **Nút phát nhạc góc trái màn hình (#music-toggle-btn):** Nút tròn màu đỏ rượu trầm (#4a0e0e) kèm icon nốt nhạc trắng cố định ở góc dưới bên trái màn hình theo đúng ảnh mẫu. Tự động phát nhạc khi bấm OPEN INVITATION (và có thể bấm trực tiếp vào nút nhạc để Bật/Tắt bất kỳ lúc nào). Hỗ trợ file .mp3 cấu hình qua config.music.src (ssets/music/music.mp3) và có sẵn giai điệu piano/music-box dự phòng bằng Web Audio API khi chưa chép file .mp3 vào thư mục.

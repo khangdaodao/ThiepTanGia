@@ -111,10 +111,13 @@ export const config = {
     musicDir: "assets/music/",
   },
 
-  // ---- Nhạc nền (Dành cho Phase 5 — mặc định tắt ở bản đầu) ----
+  // ---- Nhạc nền (Nút phát nhạc góc trái màn hình) ----
   music: {
-    enabled: false,
-    src: "",
+    enabled: true,
+    autoPlayOnOpen: true,
+    // Bỏ file nhạc .mp3 vào thư mục assets/music/ rồi đổi tên file dưới đây (ví dụ: "assets/music/nhac-nen.mp3").
+    // Nếu chưa có file .mp3 trong thư mục, web sẽ tự phát giai điệu piano nhẹ dự phòng.
+    src: "assets/music/Yesterday.mp3",
   },
 };
 

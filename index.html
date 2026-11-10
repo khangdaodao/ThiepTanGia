@@ -211,6 +211,32 @@
     </section>
   </main>
 
+  <!-- Nút phát nhạc cố định ở góc dưới bên trái màn hình -->
+  <button
+    type="button"
+    id="music-toggle-btn"
+    class="music-fab is-paused"
+    aria-label="Bật / Tắt nhạc nền"
+    aria-pressed="false"
+    title="Bật / Tắt nhạc nền"
+  >
+    <svg
+      class="music-fab__icon"
+      viewBox="0 0 24 24"
+       aria-hidden="true"
+      focusable="false"
+    >
+      <!-- Hình nốt nhạc đơn (eighth note) màu trắng giống ảnh mẫu -->
+      <path
+        d="M12 4v10.55A4 4 0 1 0 14 18V8h4V4h-6Z"
+        fill="currentColor"
+      />
+    </svg>
+    <span class="music-fab__slash" aria-hidden="true"></span>
+  </button>
+
+  <audio id="bg-music" loop preload="auto"></audio>
+
   <script type="module" src="js/main.js"></script>
 </body>
 

@@ -740,3 +740,117 @@ a {
   text-transform: uppercase;
   color: var(--color-ink-black);
 }
+
+/* ==========================================================================
+   10. FLOATING MUSIC BUTTON (Góc dưới bên trái như ảnh mẫu)
+   ========================================================================== */
+.music-fab {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #4a0e0e;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 6px 18px rgba(74, 14, 14, 0.36),
+    0 0 0 3px rgba(74, 14, 14, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.music-fab:hover,
+.music-fab:focus-visible {
+  transform: scale(1.06);
+  outline: none;
+}
+
+.music-fab[hidden] {
+  display: none !important;
+}
+
+.music-fab__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Vạch chéo mảnh báo trạng thái đang tắt nhạc (ẩn đi khi nhạc đang phát) */
+.music-fab__slash {
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  transform: rotate(-42deg);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.music-fab.is-playing .music-fab__slash {
+  opacity: 0;
+  transform: rotate(-42deg) scaleX(0);
+}
+
+/* ==========================================================================
+   10. FLOATING MUSIC BUTTON (Góc dưới bên trái như ảnh mẫu)
+   ========================================================================== */
+.music-fab {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #4a0e0e;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 6px 18px rgba(74, 14, 14, 0.36),
+    0 0 0 3px rgba(74, 14, 14, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.music-fab:hover,
+.music-fab:focus-visible {
+  transform: scale(1.06);
+  outline: none;
+}
+
+.music-fab[hidden] {
+  display: none !important;
+}
+
+.music-fab__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Vạch chéo mảnh báo trạng thái đang tắt nhạc (ẩn đi khi nhạc đang phát) */
+.music-fab__slash {
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  transform: rotate(-42deg);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.music-fab.is-playing .music-fab__slash {
+  opacity: 0;
+  transform: rotate(-42deg) scaleX(0);
+}

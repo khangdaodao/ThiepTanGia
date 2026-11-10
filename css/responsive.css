@@ -118,6 +118,18 @@
   .polaroid-title {
     font-size: 1.2rem;
   }
+
+  .music-fab {
+    left: 1rem;
+    bottom: 1rem;
+    width: 46px;
+    height: 46px;
+  }
+
+  .music-fab__icon {
+    width: 21px;
+    height: 21px;
+  }
 }
 
 /* Wide Desktop (>= 1440px) */
