@@ -11,16 +11,18 @@ Website thiệp mời tân gia một trang dọc theo phong cách **Luxury Edito
 - Vercel static deployment (`vercel.json`)
 - Không sử dụng React, Vue, Angular, Tailwind CSS hoặc bất kỳ UI framework nào.
 
-## 3. Cấu trúc thư mục
+## 3. Cấu trúc thư mục (Root: TanGiaWeb)
 ```text
-housewarming-invitation/
+TanGiaWeb/
 ├── index.html
 ├── README.md
 ├── context.md
 ├── vercel.json
 ├── .gitignore
 ├── assets/
-│   ├── images/.gitkeep
+│   ├── images/
+│   │   ├── houseReal.jpg
+│   │   └── houseAI.jpg
 │   ├── fonts/.gitkeep
 │   └── music/.gitkeep
 ├── css/
