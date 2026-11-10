@@ -1,0 +1,121 @@
+/* ==========================================================================
+   responsive.css — Responsive Breakpoints (375px, 390px, 768px, 1440px)
+   ========================================================================== */
+
+/* Tablet & Below (<= 900px): Reflow Our Home editorial magazine grid into vertical stack */
+@media (max-width: 900px) {
+  .our-home-magazine {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .our-home-header,
+  .our-home-visual,
+  .our-home-story {
+    grid-column: 1 / -1;
+  }
+
+  .editorial-figure--magazine .photo-placeholder {
+    min-height: 340px;
+  }
+}
+
+/* Tablet Portrait (<= 768px) */
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 2.25rem;
+    --card-padding-y: 3.5rem;
+    --card-padding-x: 2rem;
+    --radius-card: 18px;
+  }
+
+  .invitation-canvas {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .paper-card--cover {
+    min-height: auto;
+    padding-block: 3.75rem;
+  }
+}
+
+/* Mobile Devices (375px / 390px / <= 480px) */
+@media (max-width: 480px) {
+  :root {
+    --section-gap: 1.75rem;
+    --card-padding-y: 2.75rem;
+    --card-padding-x: 1.35rem;
+    --radius-card: 16px;
+  }
+
+  .invitation-canvas {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+
+  .vertical-hairline {
+    height: 40px;
+    margin: 1.35rem auto;
+  }
+
+  .display-heading--cover {
+    font-size: 1.85rem;
+    letter-spacing: 0.06em;
+  }
+
+  .display-heading,
+  .display-heading--xl {
+    font-size: 1.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .host-name {
+    font-size: 1.65rem;
+  }
+
+  .editorial-btn {
+    width: 100%;
+    max-width: 280px;
+    padding-inline: 1.25rem;
+  }
+
+  .photo-placeholder {
+    min-height: 260px;
+    padding: 2rem 1.15rem;
+  }
+
+  .editorial-figure--magazine .photo-placeholder {
+    min-height: 280px;
+  }
+
+  .calendar-weekdays span {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .calendar-cell {
+    width: 36px;
+    height: 36px;
+    font-size: 0.96rem;
+  }
+
+  .location-polaroid {
+    padding: 0.85rem 0.85rem 1.25rem;
+  }
+
+  .polaroid-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Wide Desktop (>= 1440px) */
+@media (min-width: 1440px) {
+  :root {
+    --container-width: 800px;
+    --container-wide: 980px;
+    --section-gap: 4rem;
+  }
+
+  .invitation-canvas {
+    padding-block: 3.5rem 5.5rem;
+  }
+}

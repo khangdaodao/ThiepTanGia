@@ -1,0 +1,18 @@
+/* ==========================================================================
+   animations.css — CSS Hooks Reserved for Phase 5
+   Phase 4: All sections & elements remain visible by default.
+   The complete staggered scroll animation & cover opening transition
+   are intentionally deferred to Phase 5.
+   ========================================================================== */
+
+[data-animate-group],
+[data-animate-item] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

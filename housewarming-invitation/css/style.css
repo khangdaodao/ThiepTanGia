@@ -1,0 +1,745 @@
+/* ==========================================================================
+   style.css — Luxury Editorial Housewarming Invitation
+   Palette: Ivory, Beige & Black (Inspired by Inkaphy Print Atelier Reference)
+   ========================================================================== */
+
+/* 1. CSS Custom Properties (Design Tokens) */
+:root {
+  /* Color Palette — Ivory, Beige & Black */
+  --color-canvas-beige: #e4dcd0;
+  --color-canvas-beige-deep: #d7ccb9;
+  --color-paper-ivory: #faf8f4;
+  --color-paper-warm: #f3efe7;
+  --color-ink-black: #151413;
+  --color-ink-charcoal: #2c2a27;
+  --color-ink-muted: #656058;
+  --color-ink-subtle: #8c857b;
+  --color-hairline: rgba(21, 20, 19, 0.22);
+  --color-hairline-soft: rgba(21, 20, 19, 0.1);
+  --color-hairline-light: rgba(250, 248, 244, 0.24);
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua",
+    Georgia, serif;
+  --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+     sans-serif;
+
+  /* Spacing & Sizes */
+  --container-width: 760px;
+  --container-wide: 920px;
+  --section-gap: 3.5rem;
+  --card-padding-y: 4.5rem;
+  --card-padding-x: 3.5rem;
+
+  /* Borders & Shadows */
+  --radius-card: 22px;
+  --radius-frame: 4px;
+  --shadow-paper: 0 22px 50px rgba(21, 20, 19, 0.09),
+    0 4px 14px rgba(21, 20, 19, 0.04);
+}
+
+/* 2. Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas-beige);
+  color: var(--color-ink-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--color-ink-black);
+  background: radial-gradient(
+    circle at 50% 0%,
+    #ede6dc 0%,
+    var(--color-canvas-beige) 55%,
+    var(--color-canvas-beige-deep) 100%
+  );
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+button,
+a {
+  font: inherit;
+  color: inherit;
+}
+
+/* 3. Global Single-Page Vertical Layout */
+.invitation-canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--section-gap);
+  padding: 2.75rem 1.25rem 4.5rem;
+  width: 100%;
+}
+
+.editorial-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Paper Card Containers */
+.paper-card {
+  width: 100%;
+  max-width: var(--container-width);
+  background-color: var(--color-paper-ivory);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-paper);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  padding: var(--card-padding-y) var(--card-padding-x);
+  position: relative;
+}
+
+.paper-card--editorial {
+  max-width: var(--container-wide);
+}
+
+.paper-card--dark-atelier {
+  background-color: var(--color-ink-black);
+  color: var(--color-paper-ivory);
+  border-color: rgba(250, 248, 244, 0.08);
+}
+
+/* 4. Shared Editorial Typography & Dividers */
+.section-numeral {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--color-ink-muted);
+  margin-bottom: 0.5rem;
+}
+
+.section-numeral--light {
+  color: rgba(250, 248, 244, 0.65);
+}
+
+.editorial-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.editorial-kicker--light {
+  color: rgba(250, 248, 244, 0.72);
+}
+
+.display-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4.5vw, 3.15rem);
+  line-height: 1.12;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.display-heading--cover {
+  font-size: clamp(2.15rem, 5vw, 3.35rem);
+  letter-spacing: 0.09em;
+  margin-top: 0.6rem;
+}
+
+.display-heading--xl {
+  font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+  letter-spacing: 0.08em;
+}
+
+.display-heading--light {
+  color: var(--color-paper-ivory);
+  margin-top: 0.35rem;
+}
+
+.editorial-subhead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: var(--color-ink-muted);
+  margin-top: 0.4rem;
+}
+
+.micro-caption {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1.75;
+  text-transform: uppercase;
+  color: var(--color-ink-charcoal);
+}
+
+.micro-caption--preline {
+  white-space: pre-line;
+}
+
+.vertical-hairline {
+  width: 1px;
+  height: 52px;
+  background-color: var(--color-hairline);
+  margin: 1.85rem auto;
+}
+
+.vertical-hairline--short {
+  height: 36px;
+  margin: 1.25rem 0;
+}
+
+/* Editorial Buttons (Inspired by reference 'PHẢN HỒI' button) */
+.editorial-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 2.4rem;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease, transform 0.2s ease;
+}
+
+.editorial-btn--dark {
+  background-color: var(--color-ink-black);
+  color: var(--color-paper-ivory);
+  border: 1px solid var(--color-ink-black);
+}
+
+.editorial-btn--dark:hover,
+.editorial-btn--dark:focus-visible {
+  background-color: transparent;
+  color: var(--color-ink-black);
+}
+
+.editorial-btn--ivory {
+  background-color: var(--color-paper-ivory);
+  color: var(--color-ink-black);
+  border: 1px solid var(--color-paper-ivory);
+}
+
+.editorial-btn--ivory:hover,
+.editorial-btn--ivory:focus-visible {
+  background-color: transparent;
+  color: var(--color-paper-ivory);
+}
+
+.editorial-btn--disabled,
+.editorial-btn--disabled:hover,
+.editorial-btn--disabled:focus-visible {
+  background-color: rgba(250, 248, 244, 0.12);
+  color: rgba(250, 248, 244, 0.55);
+  border-color: rgba(250, 248, 244, 0.22);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Photographic Figures & Clearly Marked Missing-Asset Placeholders */
+.editorial-figure {
+  width: 100%;
+  background-color: var(--color-paper-warm);
+  border: 1px solid var(--color-hairline-soft);
+  overflow: hidden;
+  position: relative;
+}
+
+.editorial-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%;
+  min-height: 380px;
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  background: linear-gradient(
+    180deg,
+    var(--color-paper-ivory) 0%,
+    var(--color-paper-warm) 100%
+  );
+  border: 1px dashed rgba(21, 20, 19, 0.28);
+}
+
+.photo-placeholder__frame {
+  width: 76px;
+  height: 98px;
+  border: 1px solid var(--color-ink-black);
+  border-radius: 38px 38px 0 0;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.photo-placeholder__frame::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 32px 32px 0 0;
+}
+
+.photo-placeholder__badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background-color: var(--color-ink-black);
+  color: var(--color-paper-ivory);
+}
+
+.photo-placeholder__title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-black);
+}
+
+.photo-placeholder__path {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  max-width: 34ch;
+}
+
+.editorial-figcaption {
+  padding: 0.85rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-align: center;
+  background-color: var(--color-paper-ivory);
+  border-top: 1px solid var(--color-hairline-soft);
+}
+
+/* ==========================================================================
+   5. SECTION 01 — THE INVITATION (Minimalist Cover)
+   ========================================================================== */
+.paper-card--cover {
+  min-height: min(88vh, 820px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 5rem;
+}
+
+.cover-top {
+  max-width: 560px;
+}
+
+.cover-hosts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.hosts-monogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.host-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.2vw, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.host-ampersand {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.1;
+  color: var(--color-ink-charcoal);
+  margin-block: 0.1rem;
+}
+
+.cover-bottom {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.editorial-lead {
+  font-size: 0.95rem;
+  color: var(--color-ink-charcoal);
+  line-height: 1.75;
+}
+
+.cover-date-stamp {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--color-ink-black);
+}
+
+.cover-action {
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   6. SECTION 02 — OUR HOME (Editorial Magazine Composition)
+   ========================================================================== */
+.our-home-magazine {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.our-home-header {
+  grid-column: 1 / 13;
+  border-bottom: 1px solid var(--color-hairline-soft);
+  padding-bottom: 1.75rem;
+}
+
+.our-home-visual {
+  grid-column: 1 / 8;
+}
+
+.editorial-figure--magazine .photo-placeholder {
+  min-height: 440px;
+}
+
+.our-home-story {
+  grid-column: 8 / 13;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.story-hosts-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.story-hosts-names {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.body-prose {
+  font-size: 0.96rem;
+  line-height: 1.85;
+  color: var(--color-ink-charcoal);
+}
+
+.body-prose + .body-prose {
+  margin-top: 1.15rem;
+}
+
+.body-prose--muted {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--color-ink-muted);
+}
+
+/* ==========================================================================
+   7. SECTION 03 — THE DATE (Calendar-Style Design — November 2026)
+   ========================================================================== */
+.paper-card--date {
+  text-align: center;
+}
+
+.date-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.event-time-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.event-time-line {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.event-date-line {
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.calendar-atelier {
+  max-width: 520px;
+  margin-inline: auto;
+  padding-top: 0.5rem;
+}
+
+.calendar-atelier__header {
+  margin-bottom: 1.5rem;
+}
+
+.calendar-month-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.calendar-weekdays,
+.calendar-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.calendar-weekdays {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.calendar-weekdays span {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.calendar-dates-grid {
+  row-gap: 0.65rem;
+}
+
+.calendar-cell {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--color-ink-black);
+  z-index: 1;
+}
+
+.calendar-cell--empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Highlighted Day 14 — Editorial 4-Point Diamond Star Emblem from Reference */
+.calendar-cell--highlighted {
+  color: var(--color-paper-ivory);
+  font-weight: 600;
+}
+
+.calendar-cell__star {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  z-index: -1;
+  fill: var(--color-ink-black);
+  pointer-events: none;
+}
+
+.calendar-cell__number {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   8. SECTION 04 — LOCATION (Dark Atelier Card + White Polaroid Frame)
+   ========================================================================== */
+.paper-card--dark-atelier {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.location-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-address-block {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.location-venue-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-paper-ivory);
+}
+
+.location-address-text {
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: rgba(250, 248, 244, 0.84);
+}
+
+/* White Polaroid Frame inside Dark Atelier Section (Matches Reference Center Card) */
+.location-polaroid {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-paper-ivory);
+  color: var(--color-ink-black);
+  padding: 1.15rem 1.15rem 1.5rem;
+  border-radius: var(--radius-frame);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.editorial-figure--polaroid .photo-placeholder {
+  min-height: 270px;
+}
+
+.location-polaroid__caption {
+  padding-top: 1.15rem;
+  text-align: center;
+}
+
+.polaroid-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}
+
+.polaroid-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-top: 0.25rem;
+}
+
+.location-action-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.location-disabled-note {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: rgba(250, 248, 244, 0.65);
+  max-width: 42ch;
+}
+
+/* ==========================================================================
+   9. SECTION 05 — THANK YOU (Minimalist Closing Section)
+   ========================================================================== */
+.paper-card--closing {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 5rem;
+}
+
+.thank-you-prose {
+  max-width: 50ch;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--color-ink-charcoal);
+}
+
+.thank-you-signoff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.closing-hosts-names {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-black);
+}

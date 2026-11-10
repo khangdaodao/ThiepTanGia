@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Housewarming Invitation — Toàn Văn Phong &amp; Nguyễn Thị Thảo"
+    />
+    <title>Housewarming Invitation — Toàn Văn Phong &amp; Nguyễn Thị Thảo</title>
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Be Vietnam Pro (Clean Sans-Serif hỗ trợ tiếng Việt) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <main id="app" class="invitation-canvas">
+      <!-- ============================================================
+           SECTION 01 — THE INVITATION (Minimalist Cover, No House Photo)
+           ============================================================ -->
+      <section
+        id="section-invitation"
+        class="editorial-section section-invitation"
+        aria-labelledby="invitation-heading"
+        data-section="invitation"
+      >
+        <div class="paper-card paper-card--cover" data-animate-group>
+          <div class="cover-top" data-animate-item>
+            <p class="editorial-kicker" id="invitation-subtitle"></p>
+            <h1 class="display-heading display-heading--cover" id="invitation-heading">
+              HOUSEWARMING INVITATION
+            </h1>
+          </div>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <div class="cover-hosts" data-animate-item>
+            <p class="micro-caption" id="invitation-role-label"></p>
+            <div class="hosts-monogram" id="invitation-hosts">
+              <span class="host-name" id="invitation-host-1"></span>
+              <span class="host-ampersand" id="invitation-host-sep">&amp;</span>
+              <span class="host-name" id="invitation-host-2"></span>
+            </div>
+          </div>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <div class="cover-bottom" data-animate-item>
+            <p class="editorial-lead" id="invitation-message"></p>
+            <p class="cover-date-stamp" id="invitation-date-stamp"></p>
+            <div class="cover-action">
+              <button
+                type="button"
+                class="editorial-btn editorial-btn--dark"
+                id="open-invitation-btn"
+                data-action="open-invitation"
+              >
+                OPEN INVITATION
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 02 — OUR HOME (Editorial Magazine Composition)
+           ============================================================ -->
+      <section
+        id="section-our-home"
+        class="editorial-section section-our-home"
+        aria-labelledby="our-home-heading"
+        data-section="our-home"
+      >
+        <div class="paper-card paper-card--editorial" data-animate-group>
+          <div class="our-home-magazine">
+            <header class="our-home-header" data-animate-item>
+              <span class="section-numeral" id="our-home-number">02</span>
+              <p class="editorial-kicker" id="our-home-eyebrow">THE NEW CHAPTER</p>
+              <h2 class="display-heading display-heading--xl" id="our-home-heading">
+                OUR HOME
+              </h2>
+              <p class="editorial-subhead" id="our-home-subtitle"></p>
+            </header>
+
+            <div class="our-home-visual" data-animate-item>
+              <figure
+                class="editorial-figure editorial-figure--magazine"
+                id="our-home-figure"
+              ></figure>
+            </div>
+
+            <div class="our-home-story" data-animate-item>
+              <div class="story-hosts-signature">
+                <span class="micro-caption">GIA CHỦ</span>
+                <p class="story-hosts-names" id="our-home-hosts"></p>
+              </div>
+
+              <div
+                class="vertical-hairline vertical-hairline--short"
+                aria-hidden="true"
+              ></div>
+
+              <p class="body-prose" id="our-home-intro"></p>
+              <p class="body-prose body-prose--muted" id="our-home-note"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 03 — THE DATE (Calendar-Style Design — November 2026)
+           ============================================================ -->
+      <section
+        id="section-date"
+        class="editorial-section section-date"
+        aria-labelledby="date-heading"
+        data-section="date"
+      >
+        <div class="paper-card paper-card--date" data-animate-group>
+          <header class="date-header" data-animate-item>
+            <span class="section-numeral" id="date-number">03</span>
+            <h2 class="display-heading" id="date-heading">SAVE THE DATE</h2>
+            <p class="micro-caption micro-caption--preline" id="date-invitation-lead"></p>
+          </header>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <div class="event-time-hero" data-animate-item>
+            <p class="event-time-line" id="date-time-line">VÀO HỒI 16:00</p>
+            <p class="event-date-line" id="date-full-line">
+              THỨ BẢY | 14 . 11 . 2026
+            </p>
+          </div>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <div class="calendar-atelier" data-animate-item>
+            <div class="calendar-atelier__header">
+              <p class="calendar-month-title" id="calendar-month-heading">
+                NOVEMBER 2026
+              </p>
+            </div>
+
+            <div
+              class="calendar-weekdays"
+              role="row"
+              aria-label="Các thứ trong tuần"
+            >
+              <span role="columnheader">T2</span>
+              <span role="columnheader">T3</span>
+              <span role="columnheader">T4</span>
+              <span role="columnheader">T5</span>
+              <span role="columnheader">T6</span>
+              <span role="columnheader">T7</span>
+              <span role="columnheader">CN</span>
+            </div>
+
+            <div
+              class="calendar-dates-grid"
+              id="calendar-grid"
+              role="grid"
+              aria-labelledby="calendar-month-heading"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 04 — LOCATION (Editorial Dark Atelier Card & Polaroid Frame)
+           ============================================================ -->
+      <section
+        id="section-location"
+        class="editorial-section section-location"
+        aria-labelledby="location-heading"
+        data-section="location"
+      >
+        <div class="paper-card paper-card--dark-atelier" data-animate-group>
+          <header class="location-header" data-animate-item>
+            <span class="section-numeral section-numeral--light" id="location-number">
+              04
+            </span>
+            <p class="editorial-kicker editorial-kicker--light" id="location-eyebrow">
+              LOCATION
+            </p>
+            <h2
+              class="display-heading display-heading--light"
+              id="location-heading"
+            >
+              FIND OUR HOME
+            </h2>
+          </header>
+
+          <div class="location-address-block" data-animate-item>
+            <p class="location-venue-title" id="location-venue"></p>
+            <address class="location-address-text" id="location-address"></address>
+          </div>
+
+          <!-- Khung ảnh Polaroid trắng lấy cảm hứng trực tiếp từ mẫu tham chiếu -->
+          <div class="location-polaroid" data-animate-item>
+            <figure
+              class="editorial-figure editorial-figure--polaroid"
+              id="location-figure"
+            ></figure>
+            <div class="location-polaroid__caption">
+              <p class="polaroid-title" id="polaroid-venue-title"></p>
+              <p class="polaroid-subtitle" id="polaroid-address-short"></p>
+            </div>
+          </div>
+
+          <div class="location-action-area" data-animate-item>
+            <a
+              id="location-maps-btn"
+              class="editorial-btn editorial-btn--ivory"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW LOCATION
+            </a>
+            <p class="location-disabled-note" id="location-disabled-note" hidden></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 05 — THANK YOU (Minimalist Closing Section, No Photo)
+           ============================================================ -->
+      <section
+        id="section-thank-you"
+        class="editorial-section section-thank-you"
+        aria-labelledby="thank-you-heading"
+        data-section="thank-you"
+      >
+        <div class="paper-card paper-card--closing" data-animate-group>
+          <span class="section-numeral" id="thank-you-number" data-animate-item>
+            05
+          </span>
+          <p class="editorial-kicker" id="thank-you-subtitle" data-animate-item></p>
+          <h2
+            class="display-heading display-heading--xl"
+            id="thank-you-heading"
+            data-animate-item
+          >
+            THANK YOU
+          </h2>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <p class="thank-you-prose" id="thank-you-message" data-animate-item></p>
+
+          <div class="vertical-hairline" aria-hidden="true" data-animate-item></div>
+
+          <div class="thank-you-signoff" data-animate-item>
+            <p class="micro-caption" id="thank-you-closing-note"></p>
+            <p class="closing-hosts-names" id="thank-you-hosts"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
