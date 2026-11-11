@@ -22,8 +22,10 @@
   /* Typography */
   /* Font toàn trang: Montserrat. Muốn đổi font, chỉ cần sửa 2 dòng này
      (và link Google Fonts trong index.html). */
-  --font-serif: "Montserrat", "Segoe UI", Arial, sans-serif; /* tiêu đề, tên, ngày tháng */
-  --font-sans: "Montserrat", "Segoe UI", Arial, sans-serif;  /* nội dung */
+  --font-serif: "Montserrat", "Segoe UI", Arial, sans-serif;
+  /* tiêu đề, tên, ngày tháng */
+  --font-sans: "Montserrat", "Segoe UI", Arial, sans-serif;
+  /* nội dung */
 
   /* Spacing & Sizes */
   --container-width: 760px;
@@ -166,11 +168,16 @@ a {
   font-size: clamp(2.15rem, 5vw, 3.35rem);
   letter-spacing: 0.09em;
   margin-top: 0.6rem;
+  color: #a31d1d;
 }
 
 .display-heading--xl {
   font-size: clamp(2.4rem, 5.2vw, 3.6rem);
   letter-spacing: 0.08em;
+}
+
+#location-heading {
+  color: #e54d42;
 }
 
 .display-heading--light {
@@ -459,6 +466,10 @@ a {
   padding-top: 0.5rem;
 }
 
+#our-home-heading {
+  color: #a31d1d;
+}
+
 .story-hosts-signature {
   display: flex;
   flex-direction: column;
@@ -517,7 +528,7 @@ a {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-ink-black);
+  color: #a31d1d;
 }
 
 .event-date-line {
@@ -526,7 +537,7 @@ a {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-ink-black);
+  color: #a31d1d;
 }
 
 .calendar-atelier {
@@ -717,6 +728,11 @@ a {
   flex-direction: column;
   align-items: center;
   padding-block: 5rem;
+}
+
+#thank-you-heading {
+  color: #a31d1d;
+  /* <--- Màu đỏ cho chữ THANK YOU */
 }
 
 .thank-you-prose {
